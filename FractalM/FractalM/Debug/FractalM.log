@@ -1,2 +1,3 @@
 ﻿  Source.cpp
+c1xx : warning C4199: двухэтапный поиск имен не поддерживается для C++/CLI, C++/CX или OpenMP. Используйте /Zc:twoPhase-
   FractalM.vcxproj -> E:\projects\C-C++\VS\Fractal\FractalM\Debug\FractalM.exe

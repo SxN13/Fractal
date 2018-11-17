@@ -2,13 +2,14 @@
 #include <chrono>
 #include <thread>
 #include <iostream>
-#include "Complex.h"
+#include <omp.h>
 
+#include "Complex.h"
 #include "glut.h"
 //#include <iostream>
 
 int WH = 500, WW = 500;
-int nX = 10000, nY = 10000;
+int nX = 500, nY = 500;
 float X = 0, Y = 0, scale_factor = 1;
 
 void reshape(int w, int h)
@@ -35,7 +36,7 @@ void reshape2(int w, int h)
 	glLoadIdentity();
 	gluOrtho2D(0, w, 0, h);
 	glTranslatef(X, Y, 0);
-	glScalef(scale_factor, scale_factor, 0);
+	glScalef(scale_factor, scale_factor, scale_factor);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	
@@ -143,24 +144,39 @@ void displayT()
 
 void displayM()
 {
+	double r, g, b;
+	int xx = 0, yy = 0;
+	nX = 500; nY = 500;
 	glClear(GL_COLOR_BUFFER_BIT);
-
 	glBegin(GL_POINTS);
-	for (int y = 0; y < WH; y++) //построение множества
-		for (int x = 0; x < WW; x++)
+
+#pragma omp for firstprivate(x) lastprivate(y)
+		for (int y = (nY - 500); y < nY; y++) //построение множества
 		{
-			Complex z(0, 0);
-			int i = 0;
-			while (i < 500 && z.abs() < 16) {
-				z = z * z + Complex((x - WW/1.5) / 180.0, (y - WH/2) / 180.0);
-				i++;
+			xx = 0;
+			for (int x = (nX - 500); x < nX; x++)
+			{
+				Complex z(0, 0);
+				int i = 0;
+				
+				while (i < 500 && z.abs() < 16)
+				{
+					z = z * z + Complex((x - nX / 1.5) / 180.0, (y - nY / 2.) / 180.0);
+					i++;
+				}
+				
+				r = 0.7 + i * 0.05 * 0.7;
+				g = 0.2 + i * 0.03 * 0.2;
+				b = 0.2 + i * 0.03 * 0.2;
+				
+				glColor3d(r, g, b);
+				glVertex2d(xx, yy);
+
+				xx++;
 			}
-			double r = 0.9 + i * 0.03 * 0.5; 
-			double g = 0.6 + i * 0.03 * 0.3; 
-			double b = 0.1 + i * 0.03 * 0.7; 
-			glColor3d(r, g, b);
-			glVertex2d(x, y);
+			yy++;
 		}
+
 	glEnd();
 	
 	glutSwapBuffers();
@@ -191,6 +207,7 @@ int main( int argc, char **argv )
 	glutSetKeyRepeat(GLUT_KEY_REPEAT_OFF);
 	glutIgnoreKeyRepeat(1);
 	glutSpecialFunc(fProp);
+	glutIgnoreKeyRepeat(1);
 	glutSpecialUpFunc(fPropR);
 
 	glutMainLoop();
