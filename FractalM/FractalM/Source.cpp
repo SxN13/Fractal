@@ -10,7 +10,6 @@ int findMandelbrot(double cr, double ci, double max_iterations) {
 	int i = 0;
 	double zr = 0.0, zi = 0.0;
 	while (i < max_iterations && zr * zr + zi * zi < 4.0)
-
 	{
 		double temp = zr * zr - zi * zi + cr;
 		zi = 2.0 * zr * zi + ci;

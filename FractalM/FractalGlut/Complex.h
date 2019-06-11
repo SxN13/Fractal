@@ -16,5 +16,30 @@ public:
 	{
 		return Complex(r * c.r - i * c.i, 2 * r * c.i);
 	}
-	double abs() { return r * r + i * i; }
+	bool operator<(const Complex &c)	//почему-то не работает!
+	{
+		if ((r < c.r) && ((r == c.r)|(i < c.i)))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	bool operator>(const Complex &c)
+	{
+		if ((r > c.r) && ((r == c.r) | (i > c.i)))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	double abs() 
+	{ 
+		return r * r + i * i; 
+	} 
 };
