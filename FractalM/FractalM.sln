@@ -1,13 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2048
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FractalM", "FractalM\FractalM.vcxproj", "{4E98690D-16AD-4B8C-AFC5-FDAA042518BF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fractal_file", "FractalM\FractalM.vcxproj", "{4E98690D-16AD-4B8C-AFC5-FDAA042518BF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FractalGlut", "FractalGlut\FractalGlut.vcxproj", "{A144F049-DC94-4A95-A51C-80580E61E4C1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fractal_0", "FractalGlut\FractalGlut.vcxproj", "{A144F049-DC94-4A95-A51C-80580E61E4C1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FratalMod", "FratalMod\FratalMod.vcxproj", "{F59C9317-0829-4AFC-B7EA-D080179D8082}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fractel_thread", "fractel_thread\fractel_thread.vcxproj", "{4E02F5C4-E60A-4FE8-BD35-43B3CA0CF9D4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fractal_omp", "fractal_omp\fractal_omp.vcxproj", "{5E7017F3-EEA3-4E87-8576-CC2D468DD613}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fractal_ocl_cpu", "fractal_ocl_cpu\fractal_ocl_cpu.vcxproj", "{D68951BB-34E1-49D1-8EF0-A1DD7145F38A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,14 +37,30 @@ Global
 		{A144F049-DC94-4A95-A51C-80580E61E4C1}.Release|x64.Build.0 = Release|x64
 		{A144F049-DC94-4A95-A51C-80580E61E4C1}.Release|x86.ActiveCfg = Release|Win32
 		{A144F049-DC94-4A95-A51C-80580E61E4C1}.Release|x86.Build.0 = Release|Win32
-		{F59C9317-0829-4AFC-B7EA-D080179D8082}.Debug|x64.ActiveCfg = Debug|x64
-		{F59C9317-0829-4AFC-B7EA-D080179D8082}.Debug|x64.Build.0 = Debug|x64
-		{F59C9317-0829-4AFC-B7EA-D080179D8082}.Debug|x86.ActiveCfg = Debug|Win32
-		{F59C9317-0829-4AFC-B7EA-D080179D8082}.Debug|x86.Build.0 = Debug|Win32
-		{F59C9317-0829-4AFC-B7EA-D080179D8082}.Release|x64.ActiveCfg = Release|x64
-		{F59C9317-0829-4AFC-B7EA-D080179D8082}.Release|x64.Build.0 = Release|x64
-		{F59C9317-0829-4AFC-B7EA-D080179D8082}.Release|x86.ActiveCfg = Release|Win32
-		{F59C9317-0829-4AFC-B7EA-D080179D8082}.Release|x86.Build.0 = Release|Win32
+		{4E02F5C4-E60A-4FE8-BD35-43B3CA0CF9D4}.Debug|x64.ActiveCfg = Debug|x64
+		{4E02F5C4-E60A-4FE8-BD35-43B3CA0CF9D4}.Debug|x64.Build.0 = Debug|x64
+		{4E02F5C4-E60A-4FE8-BD35-43B3CA0CF9D4}.Debug|x86.ActiveCfg = Debug|Win32
+		{4E02F5C4-E60A-4FE8-BD35-43B3CA0CF9D4}.Debug|x86.Build.0 = Debug|Win32
+		{4E02F5C4-E60A-4FE8-BD35-43B3CA0CF9D4}.Release|x64.ActiveCfg = Release|x64
+		{4E02F5C4-E60A-4FE8-BD35-43B3CA0CF9D4}.Release|x64.Build.0 = Release|x64
+		{4E02F5C4-E60A-4FE8-BD35-43B3CA0CF9D4}.Release|x86.ActiveCfg = Release|Win32
+		{4E02F5C4-E60A-4FE8-BD35-43B3CA0CF9D4}.Release|x86.Build.0 = Release|Win32
+		{5E7017F3-EEA3-4E87-8576-CC2D468DD613}.Debug|x64.ActiveCfg = Debug|x64
+		{5E7017F3-EEA3-4E87-8576-CC2D468DD613}.Debug|x64.Build.0 = Debug|x64
+		{5E7017F3-EEA3-4E87-8576-CC2D468DD613}.Debug|x86.ActiveCfg = Debug|Win32
+		{5E7017F3-EEA3-4E87-8576-CC2D468DD613}.Debug|x86.Build.0 = Debug|Win32
+		{5E7017F3-EEA3-4E87-8576-CC2D468DD613}.Release|x64.ActiveCfg = Release|x64
+		{5E7017F3-EEA3-4E87-8576-CC2D468DD613}.Release|x64.Build.0 = Release|x64
+		{5E7017F3-EEA3-4E87-8576-CC2D468DD613}.Release|x86.ActiveCfg = Release|Win32
+		{5E7017F3-EEA3-4E87-8576-CC2D468DD613}.Release|x86.Build.0 = Release|Win32
+		{D68951BB-34E1-49D1-8EF0-A1DD7145F38A}.Debug|x64.ActiveCfg = Debug|x64
+		{D68951BB-34E1-49D1-8EF0-A1DD7145F38A}.Debug|x64.Build.0 = Debug|x64
+		{D68951BB-34E1-49D1-8EF0-A1DD7145F38A}.Debug|x86.ActiveCfg = Debug|Win32
+		{D68951BB-34E1-49D1-8EF0-A1DD7145F38A}.Debug|x86.Build.0 = Debug|Win32
+		{D68951BB-34E1-49D1-8EF0-A1DD7145F38A}.Release|x64.ActiveCfg = Release|x64
+		{D68951BB-34E1-49D1-8EF0-A1DD7145F38A}.Release|x64.Build.0 = Release|x64
+		{D68951BB-34E1-49D1-8EF0-A1DD7145F38A}.Release|x86.ActiveCfg = Release|Win32
+		{D68951BB-34E1-49D1-8EF0-A1DD7145F38A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

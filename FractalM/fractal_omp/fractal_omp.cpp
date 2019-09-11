@@ -10,7 +10,7 @@
 #include <ctime>
 
 #include "Complex.h"
-#include "glut.h"
+#include "../FractalGlut/glut.h"
 
 int WH = 500, WW = 500;
 int nX = 500, nY = 500;
@@ -143,7 +143,7 @@ double mapToImaginary(int y, int imageHeight, double minI, double maxI)
 
 void displayM()
 {
-	
+
 	nX = WW; nY = WH; //Менять с размером окна!!!!!!
 	glClear(GL_COLOR_BUFFER_BIT);
 	glBegin(GL_POINTS);
@@ -167,11 +167,13 @@ void displayM()
 	int counterIter = 0;
 	float pr = 0;
 
+	#pragma omp parallel for
 	for (int y = 0; y < imageHeight; y++) //строки
 	{
+	#pragma omp parallel for
 		for (int x = 0; x < imageWidth; x++) //пиксели в строке
 		{
-		
+
 			double cr = mapToReal(x, imageWidth * (scale_factor), minR, maxR);
 			double ci = mapToImaginary(y, imageHeight * (scale_factor), minI, maxI);
 
@@ -181,12 +183,14 @@ void displayM()
 			int g = 0. + n * 0.05 * 0.1;
 			int b = 0. + n * 0.05 * 0.5;
 
-			glColor3d(r, g, b);
-			glVertex2d(x, y);
-			
+			#pragma omp critical
+			{
+				glColor3d(r, g, b);
+				glVertex2d(x, y);
+			}
 		}
 	}
-	
+
 	///////////////////////////////////////////////////////////////////
 	glEnd();
 
@@ -197,7 +201,7 @@ void displayM()
 }
 
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
 	time_t t1; time_t t2;
 	time(&t1);

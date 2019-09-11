@@ -1,5 +1,1 @@
-﻿  Main.cpp
-f:\projects\c-c++\vs\fractal\fractalm\fratalmod\main.cpp(35): warning C4018: '<': signed/unsigned mismatch
-f:\projects\c-c++\vs\fractal\fractalm\fratalmod\main.cpp(37): warning C4018: '<': signed/unsigned mismatch
-f:\projects\c-c++\vs\fractal\fractalm\fratalmod\main.cpp(21): warning C4715: 'iMS': not all control paths return a value
-  FratalMod.vcxproj -> F:\projects\C-C++\VS\Fractal\FractalM\Debug\FratalMod.exe
+﻿LINK : fatal error LNK1104: не удается открыть файл "F:\projects\C-C++\VS\Fractal\FractalM\FractalGlut\glut32.lib"

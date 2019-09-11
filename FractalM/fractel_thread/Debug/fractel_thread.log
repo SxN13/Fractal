@@ -1,0 +1,5 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (fractel_thread.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  fractal_thread.cpp
+D:\C-C++\VS\Fractal\FractalM\fractel_thread\fractal_thread.cpp(76,26): warning C4018:  <: несоответствие типов со знаком и без знака
+D:\C-C++\VS\Fractal\FractalM\fractel_thread\fractal_thread.cpp(78,27): warning C4018:  <: несоответствие типов со знаком и без знака
+LINK : fatal error LNK1104: не удается открыть файл "glut32.lib"
